@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const {registerUser,loginUser,refreshToken,sendPasswordResetOTP,resetPassword} = require('../controllers/usercontroller');
+const {verifyEmail} = require('../services/verify');
+router.post('/register',registerUser);
+router.get('/verify-email/:token', verifyEmail);
+router.post('/login',loginUser);
+router.post('/refresh-token', refreshToken);
+router.post('/reset-password',resetPassword);
+router.post('/forgot-password',sendPasswordResetOTP);
+module.exports=router;
